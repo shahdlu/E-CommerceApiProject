@@ -10,7 +10,7 @@ namespace DomainLayer.Contracts
 {
     public interface ISpecifications<TEntity, Tkey> where TEntity : BaseEntity<Tkey>
     {
-        public Expression<Func<TEntity, bool>> criteria { get; }
+        public Expression<Func<TEntity, bool>>? criteria { get; }
         public List<Expression<Func<TEntity, object>>> IncludeExpressions { get; }
     }
 }
