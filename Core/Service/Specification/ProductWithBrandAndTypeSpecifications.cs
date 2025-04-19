@@ -11,7 +11,9 @@ namespace Service.Specification
 {
     internal class ProductWithBrandAndTypeSpecifications : BaseSpecifications<Product,int>
     {
-        public ProductWithBrandAndTypeSpecifications(ProductQueryParams queryParams) : base(p => (!queryParams.BrandId.HasValue || p.BrandId == queryParams.BrandId) && (!queryParams.TypeId.HasValue || p.TypeId == queryParams.TypeId))
+        public ProductWithBrandAndTypeSpecifications(ProductQueryParams queryParams) : base(p => (!queryParams.BrandId.HasValue || p.BrandId == queryParams.BrandId) 
+                                                                                                             && (!queryParams.TypeId.HasValue || p.TypeId == queryParams.TypeId)
+                                                                                                             && (string.IsNullOrWhiteSpace(queryParams.SearchValue) || p.Name.ToLower().Contains(queryParams.SearchValue.ToLower())))
         {
             AddInclude(p => p.ProductBrand);
             AddInclude(p => p.ProductType);
