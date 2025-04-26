@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shared.DataTransferObjects
+namespace DomainLayer.Models.ProductModule
 {
-    public class ProductDto
+    public class Product : BaseEntity<int>
     {
-        public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string PictureUrl { get; set; } = null!;
         public decimal Price { get; set; }
-        public string BrandeName { get; set; } = null!;
-        public string TypeName { get; set; } = null!;
+        public ProductBrand ProductBrand { get; set; }
+        public int BrandId { get; set; } //FK
+        public ProductType ProductType { get; set; }
+        public int TypeId { get; set; }//FK
     }
 }
