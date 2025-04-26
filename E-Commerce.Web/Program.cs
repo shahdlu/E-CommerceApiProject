@@ -31,6 +31,7 @@ namespace E_Commerce.Web
             builder.Services.AddApplicationServices();
             builder.Services.AddWeApplicationServices();
 
+
             #endregion
 
             var app = builder.Build();
