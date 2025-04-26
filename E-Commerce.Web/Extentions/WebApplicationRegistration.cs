@@ -22,5 +22,6 @@ namespace E_Commerce.Web.Extentions
             app.UseSwaggerUI();
             return app;
         }
-    
+
+    }
 }
